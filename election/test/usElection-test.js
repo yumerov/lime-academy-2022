@@ -1,4 +1,5 @@
 const { expect } = require("chai");
+const { ethers } = require("hardhat");
 
 describe("USElection", function () {
 
@@ -70,6 +71,15 @@ describe("USElection", function () {
 
         expect(await usElection.electionEnded()).to.equal(true); // Ended
 
+    });
+
+    it("Should throw on trying to end election with not the owner", async function () {
+
+        const [owner, addr1] = await ethers.getSigners();
+
+        expect(usElection.connect(addr1).endElection()).to.be.revertedWith('Ownable: caller is not the owner');
+
+        expect(await usElection.electionEnded()).to.equal(false);
     });
 
 });
