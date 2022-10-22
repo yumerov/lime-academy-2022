@@ -1,42 +1,7 @@
 pragma solidity >=0.8.0 <0.9.0;
 
-/**
-* @title Ownable
-* @dev The Ownable contract has an owner address, and provides basic authorization control
-* functions, this simplifies the implementation of "user permissions".
-*/
-contract Ownable {
-  address private _owner;
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-  constructor() {
-    _owner = msg.sender;
-  }
-
-  function owner() internal view returns(address) {
-    return _owner;
-  }
-
-  modifier onlyOwner() {
-    require(isOwner());
-    _;
-  }
-
-  function isOwner() internal view returns(bool) {
-    return msg.sender == _owner;
-  }
-}
-
-
-/**
- * The administrator (owner) of the library should be able to add new books and the number of copies in the library. - done
- * Users should be able to see the available books and borrow them by their id. - done
- * Users should be able to return books.
- * A user should not borrow more than one copy of a book at a time. The users should not be able to borrow a book more times than the copies in the libraries unless copy is returned.
- * Everyone should be able to see the addresses of all people that have ever borrowed a given book.
- *
- * todo: type optimization
- * todo: better public interface
- */
 contract Library is Ownable {
 
     struct Book {
@@ -73,7 +38,7 @@ contract Library is Ownable {
 
     function returnBook(uint _bookId) external {
         require(isAlreadyBorrowed(_bookId), "Cannot return unborrowed book");
-        availableCopies[_id]++;
+        availableCopies[_bookId]++;
         // todo: delete from array without gap
     }
 

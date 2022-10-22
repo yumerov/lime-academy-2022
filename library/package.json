@@ -1,0 +1,26 @@
+{
+  "name": "lime-s4-library",
+  "version": "1.0.0",
+  "description": "Exercise Lime season 4 Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yumerov/lime-academy-2022.git"
+  },
+  "author": "Levent Yumerov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yumerov/lime-academy-2022/issues"
+  },
+  "homepage": "https://github.com/yumerov/lime-academy-2022#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "hardhat": "^2.12.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.7.3"
+  }
+}
