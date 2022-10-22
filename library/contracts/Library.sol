@@ -1,7 +1,19 @@
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.0 <0.9.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+/**
+ * Add configuration for deployment on Goerli. Note and save your deployed contract address.
+ * Implement testing scenarios for the Book Library contract
+ * Think about more use cases to cover in the tests
+ * Run Solidity Coverage Report
+ * Try to hit 100% coverage for your Smart Contract
+ * Create Hardhat tasks for deployment
+ * Create subtasks for printing valuable info after deployment
+ * Read any sensitive data (account private keys, API key and etc. from .env file)
+ * Add to the deployment tasks subtasks for Etherscan verification of the contracts
+ */
 contract Library is Ownable {
 
     struct Book {
