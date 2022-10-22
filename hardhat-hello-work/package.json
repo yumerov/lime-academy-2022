@@ -1,0 +1,22 @@
+{
+  "name": "lime-academy-season-4-week-2",
+  "version": "1.0.0",
+  "description": "A playground insance",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yumerov/lime-academy-2022.git"
+  },
+  "author": "Levent Yumerov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yumerov/lime-academy-2022/issues"
+  },
+  "homepage": "https://github.com/yumerov/lime-academy-2022#readme",
+  "devDependencies": {
+    "hardhat": "^2.12.0"
+  }
+}
