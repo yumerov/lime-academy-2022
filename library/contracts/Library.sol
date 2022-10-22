@@ -16,6 +16,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  */
 contract Library is Ownable {
 
+    event AddedBook(string title, uint copies);
+
     struct Book {
         string name;
     }
@@ -34,6 +36,11 @@ contract Library is Ownable {
         uint id = books.length;
         books.push(Book(_name));
         availableCopies[id] = _number;
+        emit AddedBook(_name, _number);
+    }
+
+    function getBooks() external view returns (Book[] memory) {
+        return books;
     }
 
     function isAvaliable(uint _id) public view returns (bool) {
