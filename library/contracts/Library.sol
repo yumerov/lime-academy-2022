@@ -14,6 +14,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract Library is Ownable {
 
     event AddedBook(string title, uint copies);
+    event BorrowedBook(address _borrow, uint _bookId);
 
     struct Book {
         string name;
@@ -45,11 +46,12 @@ contract Library is Ownable {
     }
 
     function borrow(uint _id) external onlyAvailable(_id) {
-        require(isAvaliable(_id), "Not available");
         require(!isAlreadyBorrowed(_id), "Already borrowed");
 
         availableCopies[_id]--;
         borrowings[_id].push(msg.sender);
+
+        emit BorrowedBook(msg.sender, _id);
     }
 
     function returnBook(uint _bookId) external {

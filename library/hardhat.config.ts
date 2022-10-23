@@ -8,7 +8,7 @@ const GOERLI_PRIVATE_KEY: string = process.env.GOERLI_PRIVATE_KEY;
 
 const config: HardhatUserConfig = {
   solidity: "0.8.17",
-  defaultNetwork: "goerli",
+  defaultNetwork: "hardhat",
   networks: {
     hardhat: {},
     goerli: {

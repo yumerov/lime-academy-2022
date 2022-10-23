@@ -39,4 +39,20 @@ describe('Library', function () {
             expect(await library.availableCopies(0)).to.equal(copies);
         });
     });
+
+    describe('Book availability', () => {
+        it('Not added book should be unavailable', async () => {
+            expect(await library.isAvaliable(999)).to.equal(false);
+        });
+
+        xit('A book with all borrowed copies should be unavailable', async () => {
+            const title = 'Solidity 101';
+            const copies = 1;
+
+            await library.connect(owner).addBook(title, copies);
+            await library.connect(owner).borrow(0);
+
+            expect(await library.isAvaliable(0)).to.equal(false);
+        });
+    });
 });
