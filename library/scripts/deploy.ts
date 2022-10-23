@@ -1,7 +1,7 @@
-const hre = require('hardhat')
+const hre = require('hardhat');
 const ethers = hre.ethers;
 
-async function deployElectionContract() {
+async function deployContract() {
     await hre.run('compile');
     const [deployer] = await ethers.getSigners();
 
@@ -9,6 +9,8 @@ async function deployElectionContract() {
     console.log('Account balance:', (await deployer.getBalance()).toString());
 
     const Library = await ethers.getContractFactory("Library"); 
+    const gasPrice = await hre.ethers.provider.getGasPrice();
+    console.log('Base gas price:', gasPrice.toString());
     const libraryContract = await Library.deploy();
     console.log('Waiting for Library deployment...');
     await libraryContract.deployed();
@@ -17,4 +19,4 @@ async function deployElectionContract() {
     console.log('Done!');
 }
 
-module.exports = deployElectionContract;
+module.exports = deployContract;

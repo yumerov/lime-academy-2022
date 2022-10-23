@@ -6,8 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 /**
  * TODO:
  * Remove for loops
- * Add configuration for deployment on Goerli. Note and save your deployed contract address.
- * Create Hardhat tasks for deployment
+ * > Add configuration for deployment on Goerli. Note and save your deployed contract address.
  * Try to hit 100% coverage for your Smart Contract
  * Create subtasks for printing valuable info after deployment
  * Add to the deployment tasks subtasks for Etherscan verification of the contracts

@@ -2,8 +2,9 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 require('dotenv').config({ path: __dirname + '/.env' })
 
-const GOERLI_RPC_URL: string = process.env.GOERLI_RPC_URL
-const GOERLI_PRIVATE_KEY: string = process.env.GOERLI_PRIVATE_KEY
+const ALCHEMY_API_KEY: string = process.env.ALCHEMY_API_KEY;
+const ALCHEMY_RPC_URL: string = process.env.ALCHEMY_RPC_URL;
+const GOERLI_PRIVATE_KEY: string = process.env.GOERLI_PRIVATE_KEY;
 
 const config: HardhatUserConfig = {
   solidity: "0.8.17",
@@ -11,7 +12,7 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {},
     goerli: {
-      url: GOERLI_RPC_URL,
+      url: `${ALCHEMY_RPC_URL}/${ALCHEMY_API_KEY}`,
       accounts: [GOERLI_PRIVATE_KEY],
       chainId: 5
     }
@@ -20,15 +21,8 @@ const config: HardhatUserConfig = {
 
 task("deploy", "Deploys contract on the local network")
   .setAction(async () => {
-    const deployElectionContract = require("./scripts/deploy");
-    await deployElectionContract();
-  });
-
-task("deploy-on-testnet", "Deploys contract on a test network")
-  .setAction(async () => {
-    console.log(GOERLI_RPC_URL, GOERLI_PRIVATE_KEY);
-    // const deployElectionContract = require("./scripts/deploy");
-    // await deployElectionContract();
+    const deployContract = require("./scripts/deploy");
+    await deployContract();
   });
 
 export default config;
