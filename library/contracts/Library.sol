@@ -4,10 +4,9 @@ pragma solidity >=0.8.0 <0.9.0;
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
+ * TODO:
+ * Remove for loops
  * Add configuration for deployment on Goerli. Note and save your deployed contract address.
- * Implement testing scenarios for the Book Library contract
- * Think about more use cases to cover in the tests
- * Run Solidity Coverage Report
  * Try to hit 100% coverage for your Smart Contract
  * Create Hardhat tasks for deployment
  * Create subtasks for printing valuable info after deployment
