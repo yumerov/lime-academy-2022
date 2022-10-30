@@ -1,13 +1,8 @@
-# Sample Hardhat Project
+# Lime Book Library Hardhat Project
+## Week 3
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+### Steps to run
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
-```
+1. Run a local node(hardhat or Ganache)
+2. Run `npx hardhat deploy --network ganache`
+3. Run `npx hardhat run scripts/interact.js`
