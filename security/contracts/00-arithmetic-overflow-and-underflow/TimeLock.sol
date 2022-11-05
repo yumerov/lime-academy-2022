@@ -26,7 +26,7 @@ contract TimeLock {
     }
 
     function increaseLockTime(uint _secondsToIncrease) public {
-        lockTime[msg.sender] += _secondsToIncrease;
+        lockTime[msg.sender] = add(lockTime[msg.sender], _secondsToIncrease);
     }
 
     function withdraw() public {
@@ -38,5 +38,12 @@ contract TimeLock {
 
         (bool sent, ) = msg.sender.call{value: amount}("");
         require(sent, "Failed to send Ether");
+    }
+
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+        uint256 c = a + b;
+        require(c > a, "Cannot overflow");
+        require(c > b, "Cannot overflow");
+        return c;
     }
 }

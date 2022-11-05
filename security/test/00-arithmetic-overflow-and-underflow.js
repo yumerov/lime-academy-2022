@@ -29,7 +29,7 @@ describe("TimeLock", function () {
             }))
                 .to
                 .be
-                .revertedWith('Lock time not expired');
+                .revertedWith('Cannot overflow');
         });
 
     });
